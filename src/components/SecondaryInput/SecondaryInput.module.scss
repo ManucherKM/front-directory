@@ -1,9 +1,7 @@
 @import "../../assets/styles/vars.scss";
 
+
 .input {
-    background: transparent;
-    border: 2px solid $blue;
-    border-radius: 10px;
     font-family: inherit;
     font-style: normal;
     font-weight: 400;
@@ -11,7 +9,10 @@
     line-height: 19px;
     display: flex;
     align-items: center;
+    border-radius: 10px;
     color: $gray;
+    border: none;
     outline: none;
+    background-color: white;
     padding: 10px 20px;
 }
