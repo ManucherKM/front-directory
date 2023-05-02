@@ -1,11 +1,14 @@
-@import "./vars.scss";
-@import "../fonts/index.scss";
+@import './vars.scss';
+@import '../fonts/index.scss';
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Gilroy';
-    font-weight: 400;
-    background: pink;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Gilroy';
+	font-weight: 400;
+}
+
+body {
+	background: pink;
 }

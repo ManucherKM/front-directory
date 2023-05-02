@@ -1,12 +1,39 @@
-@import "../../assets/styles/vars.scss";
+@import '../../assets/styles/vars.scss';
 
 .wrapper {
-    padding-left: 20px;
-    padding-right: 20px;
-    background: $blue;
+	padding-left: 20px;
+	padding-right: 20px;
+	background: $blue;
 }
 
 .navbar {
-    background: $blue;
-    max-width: 1720px;
+	background: $blue;
+	max-width: 1720px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	width: 118px;
+	height: auto;
+}
+
+.wrapper_search {
+	display: flex;
+	gap: 18px;
+
+	label {
+		border-radius: 10px;
+		background: white;
+		display: flex;
+		gap: 15px;
+		padding: 10px 20px;
+
+		input {
+			padding: 0;
+            border-radius: 0;
+		}
+	}
 }
