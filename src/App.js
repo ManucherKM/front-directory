@@ -1,15 +1,12 @@
-import ActiveButton from "./components/ActiveButton/ActiveButton"
-import SecondaryButton from "./components/SecondaryButton/SecondaryButton"
+import { useState } from "react"
+import ActiveInput from "./components/ActiveInput/ActiveInput"
 
 const App = () => {
+  const [value, setValue] = useState()
+
   return (
     <div>
-      <ActiveButton>
-        Найти
-      </ActiveButton>
-      <SecondaryButton>
-        Войти
-      </SecondaryButton>
+      <ActiveInput onChange={e => setValue(e.target.value)} value={value} />
     </div>
   )
 }
