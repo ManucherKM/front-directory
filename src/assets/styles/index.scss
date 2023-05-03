@@ -10,7 +10,14 @@
 }
 
 body {
-	background: pink;
+	background: #EEF2F6;
 	width: 100vw;
 	height: 100vh;
+}
+
+.container {
+	max-width: 1400px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 0 auto;
 }

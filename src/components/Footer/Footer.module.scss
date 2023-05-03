@@ -1,0 +1,58 @@
+@import '../../assets/styles/vars.scss';
+
+.wrapper {
+	background-color: $blue;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+
+	.wrapper_logo {
+		img {
+			width: 118px;
+			height: auto;
+		}
+	}
+
+	.wrapper_content {
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+
+		div {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
+			h5 {
+				font-family: inherit;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 16px;
+				line-height: 22px;
+				display: flex;
+				align-items: center;
+				color: white;
+				cursor: default;
+			}
+
+			a {
+				font-family: inherit;
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 22px;
+				display: flex;
+				align-items: center;
+				color: white;
+				opacity: 0.8;
+				transition: all 0.3ms;
+				text-decoration: none;
+
+				&:hover {
+					transition: all 0.3ms;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
