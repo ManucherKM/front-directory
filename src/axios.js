@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'https://project-1-1.manucherkm.repl.co'
+const url = 'http://localhost:5000'
 
 const instance = axios.create({
 	baseURL: url,

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../axios'
 import { create } from 'zustand'
 
 const useStore = create(set => ({
@@ -9,17 +9,19 @@ const useStore = create(set => ({
 		}
 
 		const params = {
-			login,
+			email: login,
 			password,
 		}
 
-		const { data } = await axios.post(params)
+		const { data } = await axios.post('/admin/auth', params)
 
 		if (!data) {
 			return
 		}
 
 		set({ auth: true })
+
+		return data
 	},
 	logout: () => {
 		set({ auth: false })
