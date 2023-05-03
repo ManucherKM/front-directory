@@ -2,9 +2,11 @@
 
 .wrapper {
 	background-color: $blue;
-	display: flex;
-	flex-direction: column;
-	gap: 40px;
+	.container {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
 
 	.wrapper_logo {
 		img {
@@ -21,6 +23,7 @@
 		div {
 			display: flex;
 			flex-direction: column;
+			width: 20%;
 			gap: 20px;
 
 			h5 {

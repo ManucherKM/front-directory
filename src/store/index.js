@@ -2,7 +2,7 @@ import axios from '../axios'
 import { create } from 'zustand'
 
 const useStore = create(set => ({
-	auth: false,
+	auth: true,
 	login: async (login, password) => {
 		if (!login || !password) {
 			return
@@ -25,6 +25,12 @@ const useStore = create(set => ({
 	},
 	logout: () => {
 		set({ auth: false })
+	},
+	getDivisions: async () => {
+		return []
+	},
+	getManagements: async () => {
+		return []
 	},
 }))
 
