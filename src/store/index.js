@@ -80,7 +80,7 @@ const useStore = create((set) => ({
     formData.append("subdivision", subdivision);
     formData.append("department", department);
 
-    const { data } = await axios.post("/employee", formData);
+    const { data } = await axios.put("/employee", formData);
 
     if (!data) {
       return;
