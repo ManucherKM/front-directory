@@ -5,11 +5,17 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import SucceedCard from "../../components/SucceedCard/SucceedCard";
 import Loader from "../../components/Loader/Loader";
+import { useStore } from "../../store";
+import Title from "../../components/Title/Title";
 
 const CreateEmployee = () => {
+  const createEmployee = useStore((state) => state.createEmployee);
+
   const [form, setForm] = useState({
     fullName: "",
     position: "",
+    department: "",
+    subdivision: "",
     email: "",
     number: "",
     file: "",
@@ -23,6 +29,20 @@ const CreateEmployee = () => {
 
   function numberHandler(e) {
     setForm((p) => ({ ...p, number: e.target.value.replace(/[^0-9]/g, "") }));
+  }
+
+  function subdivisionHandler(e) {
+    setForm((p) => ({
+      ...p,
+      subdivision: e.target.value,
+    }));
+  }
+
+  function departmentHandler(e) {
+    setForm((p) => ({
+      ...p,
+      department: e.target.value,
+    }));
   }
 
   function emailHandler(e) {
@@ -41,7 +61,7 @@ const CreateEmployee = () => {
     setForm((p) => ({ ...p, position: e.target.value }));
   }
 
-  function submitHandler(e) {
+  async function submitHandler(e) {
     e.preventDefault();
     setLodaing(true);
 
@@ -53,6 +73,8 @@ const CreateEmployee = () => {
       !form.position ||
       !reqexp.test(form.email) ||
       !form.number ||
+      !form.subdivision ||
+      !form.department ||
       !form.file;
 
     if (isCorrect) {
@@ -61,19 +83,35 @@ const CreateEmployee = () => {
       return;
     }
 
-    // Запрос к api
-    setTimeout(() => {
-      setSucceed(true);
-      setError(false);
+    const res = await createEmployee(
+      form.email,
+      form.fullName,
+      form.number,
+      form.position,
+      form.subdivision,
+      form.department,
+      form.file
+    );
+
+    if (!res) {
+      setSucceed(false);
+      setError(true);
       setLodaing(false);
-      setForm({
-        fullName: "",
-        position: "",
-        email: "",
-        number: "",
-        file: "",
-      });
-    }, 3000);
+      return;
+    }
+
+    setSucceed(true);
+    setError(false);
+    setLodaing(false);
+    setForm({
+      fullName: "",
+      position: "",
+      department: "",
+      subdivision: "",
+      email: "",
+      number: "",
+      file: "",
+    });
   }
 
   return (
@@ -84,6 +122,7 @@ const CreateEmployee = () => {
           <SucceedCard>Сотрудник сохранен</SucceedCard>
         </div>
       )}
+      <Title>Создание</Title>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.item}>
           <span>ФИО</span>
@@ -106,12 +145,32 @@ const CreateEmployee = () => {
           />
         </div>
         <div className={classes.item}>
+          <span>Подразделение</span>
+          <ActiveInput
+            onChange={subdivisionHandler}
+            value={form.subdivision}
+            type="text"
+            placeholder={"СП-1"}
+            required
+          />
+        </div>
+        <div className={classes.item}>
+          <span>Отдел</span>
+          <ActiveInput
+            onChange={departmentHandler}
+            value={form.department}
+            type="text"
+            placeholder={"Отдел кадров"}
+            required
+          />
+        </div>
+        <div className={classes.item}>
           <span>Телефон</span>
           <ActiveInput
             onChange={numberHandler}
             value={form.number}
             type="tel"
-            placeholder={"+7 (098) 876 34-34"}
+            placeholder={"+73462206940"}
             required
           />
         </div>
