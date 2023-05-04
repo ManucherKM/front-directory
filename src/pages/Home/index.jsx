@@ -18,7 +18,7 @@ const Home = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const divisions = await getDivisions()
-			console.log(divisions)
+
 			if (!divisions) {
 				return
 			}

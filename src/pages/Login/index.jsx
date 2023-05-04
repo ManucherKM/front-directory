@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import logo from '../../assets/img/logi_blue.png'
+import logo from '../../assets/img/log_blue.png'
 import ActiveInput from '../../components/ActiveInput/ActiveInput'
 import SecondaryButton from '../../components/SecondaryButton/SecondaryButton'
 import { useStore } from '../../store'
