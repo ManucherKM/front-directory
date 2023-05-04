@@ -40,12 +40,14 @@ const Login = () => {
 						value={login}
 						placeholder='Логин'
 						type='text'
+						required
 					/>
 					<ActiveInput
 						onChange={e => setPassword(e.target.value)}
 						value={password}
 						placeholder='Пароль'
 						type='password'
+						required
 					/>
 					<SecondaryButton type='submit'>Войти</SecondaryButton>
 				</form>

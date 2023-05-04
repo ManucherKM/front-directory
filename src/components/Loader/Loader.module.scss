@@ -1,0 +1,21 @@
+.wrapper {
+  width: 400px;
+  height: 300px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    animation: spinner 1s infinite linear;
+  }
+
+  @keyframes spinner {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
