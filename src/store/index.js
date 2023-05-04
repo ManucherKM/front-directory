@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import axios from '../axios'
 
 const useStore = create(set => ({
-	auth: true,
+	auth: false,
 	login: async (login, password) => {
 		if (!login || !password) {
 			return

@@ -7,7 +7,9 @@ const Footer = () => {
 		<footer className={classes.wrapper}>
 			<div className="container">
 				<div className={classes.wrapper_logo}>
-					<img src={logo} alt="logo" />
+					<Link to="/">
+						<img src={logo} alt="logo" />
+					</Link>
 				</div>
 				<div className={classes.wrapper_content}>
 					<div>

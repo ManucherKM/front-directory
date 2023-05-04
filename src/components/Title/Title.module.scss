@@ -1,6 +1,7 @@
+@import '../../assets/styles/vars.scss';
+
 .title {
 	font-family: 'Gilroy';
-
 	font-style: normal;
 	font-weight: 800;
 	font-size: 24px;
@@ -10,4 +11,12 @@
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	color: black;
+
+	@media (max-width: $table) {
+		text-align: center;
+	}
+
+	@media (max-width: $mobile) {
+		font-size: 18px;
+	}
 }

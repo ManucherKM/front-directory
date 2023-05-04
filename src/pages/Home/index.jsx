@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import DivisionsItem from '../../components/DivisionsItem/DivisionsItem'
 import Footer from '../../components/Footer/Footer'
 import List from '../../components/List'
+import ManagementCard from '../../components/ManagementCard/ManagementCard'
 import NavBar from '../../components/NavBar/NavBar'
 import Spinner from '../../components/Spinner/Spinner'
 import Title from '../../components/Title/Title'
@@ -26,7 +27,7 @@ const Home = () => {
 			setDivisions(divisions)
 
 			const managements = await getManagements()
-
+			console.log(managements)
 			if (!managements) {
 				return
 			}
@@ -45,22 +46,24 @@ const Home = () => {
 					<div className={classes.wrapper_management}>
 						<Title>Руководство</Title>
 						<div className={classes.management}>
-							{/* <List
-								arr={managements}
-								callback={management => {
-									if (management.role === roleManagement) {
-										return (
-											<ManagementCard
-												key={management.id}
-												number={management.number}
-												email={management.email}
-												fullName={management.fullName}
-												img={url + '/image/' + management.photo}
-											/>
-										)
-									}
-								}}
-							/> */}
+							{managements.length === 0 ? (
+								<div className={classes.wrapper_spinner}>
+									<Spinner />
+								</div>
+							) : (
+								<List
+									arr={managements}
+									callback={management => (
+										<ManagementCard
+											key={management.id}
+											number={management.number}
+											email={management.email}
+											fullName={management.fullName}
+											img={url + '/image/' + management.photo}
+										/>
+									)}
+								/>
+							)}
 						</div>
 					</div>
 					<div className={classes.wrapper_books}>
