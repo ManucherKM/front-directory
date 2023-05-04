@@ -38,7 +38,7 @@ const Home = () => {
 		}
 
 		fetchData()
-	})
+	}, [])
 
 	return (
 		<>

@@ -2,14 +2,20 @@ import classes from "./index.module.scss";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
 import ActiveInput from "../../components/ActiveInput/ActiveInput";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SucceedCard from "../../components/SucceedCard/SucceedCard";
 import Loader from "../../components/Loader/Loader";
 import { useStore } from "../../store";
 import Title from "../../components/Title/Title";
+import { roles } from "../../store";
+import DropDownList from "../../components/DropDownList/DropDownList";
 
 const CreateEmployee = () => {
   const createEmployee = useStore((state) => state.createEmployee);
+
+  const [divisions, setDivisions] = useState([]);
+
+  const getDivisions = useStore((state) => state.getDivisions);
 
   const [form, setForm] = useState({
     fullName: "",
@@ -31,10 +37,10 @@ const CreateEmployee = () => {
     setForm((p) => ({ ...p, number: e.target.value.replace(/[^0-9]/g, "") }));
   }
 
-  function subdivisionHandler(e) {
+  function subdivisionHandler(s) {
     setForm((p) => ({
       ...p,
-      subdivision: e.target.value,
+      subdivision: s,
     }));
   }
 
@@ -57,8 +63,8 @@ const CreateEmployee = () => {
     setForm((p) => ({ ...p, file: e.target.files[0] }));
   }
 
-  function positionHandler(e) {
-    setForm((p) => ({ ...p, position: e.target.value }));
+  function positionHandler(s) {
+    setForm((p) => ({ ...p, position: s }));
   }
 
   async function submitHandler(e) {
@@ -114,6 +120,15 @@ const CreateEmployee = () => {
     });
   }
 
+  useEffect(() => {
+    const fetchDivisions = async () => {
+      const res = await getDivisions();
+      setDivisions(res);
+    };
+
+    fetchDivisions();
+  }, []);
+
   return (
     <div className={classes.wrapper}>
       {loading && <Loader />}
@@ -136,21 +151,20 @@ const CreateEmployee = () => {
         </div>
         <div className={classes.item}>
           <span>Должность</span>
-          <ActiveInput
-            onChange={positionHandler}
-            value={form.position}
-            type="text"
-            placeholder={"Директор"}
+          <DropDownList
+            arr={roles}
+            onSelected={positionHandler}
+            defaultValue={"Выберите"}
             required
           />
         </div>
         <div className={classes.item}>
           <span>Подразделение</span>
-          <ActiveInput
-            onChange={subdivisionHandler}
-            value={form.subdivision}
-            type="text"
-            placeholder={"СП-1"}
+
+          <DropDownList
+            arr={divisions}
+            onSelected={subdivisionHandler}
+            defaultValue={"Выберите"}
             required
           />
         </div>
