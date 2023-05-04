@@ -10,7 +10,11 @@ const DropDownList = ({ arr, onSelected, defaultValue }) => {
 	}
 
 	return (
-		<select className={classes.wrapper} defaultValue={defaultValue} onChange={e => select(e.target.value)}>
+		<select
+			className={classes.wrapper}
+			defaultValue={defaultValue}
+			onChange={e => select(e.target.value)}
+		>
 			<option value="">{defaultValue}</option>
 
 			{arr.map(option =>

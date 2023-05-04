@@ -49,14 +49,25 @@ const useStore = create(set => ({
 				return res
 			}
 
-			if (employee.role === templateRoles.director || templateRoles.deputyDirector) {
+			if (
+				employee.role === templateRoles.director ||
+				templateRoles.deputyDirector
+			) {
 				res.push(employee)
 			}
 		}
 
 		return res
 	},
-	createEmployee: async (email, fullName, number, role, subdivision, department, photo) => {
+	createEmployee: async (
+		email,
+		fullName,
+		number,
+		role,
+		subdivision,
+		department,
+		photo,
+	) => {
 		const formData = new FormData()
 
 		formData.append('photo', photo)
@@ -75,7 +86,16 @@ const useStore = create(set => ({
 
 		return data
 	},
-	updateEmployee: async (id, email, fullName, number, role, subdivision, department, photo) => {
+	updateEmployee: async (
+		id,
+		email,
+		fullName,
+		number,
+		role,
+		subdivision,
+		department,
+		photo,
+	) => {
 		const formData = new FormData()
 
 		formData.append('id', id)

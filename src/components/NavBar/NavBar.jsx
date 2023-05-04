@@ -17,7 +17,13 @@ const NavBar = () => {
 
 					<div className={classes.wrapper_search}>
 						<label>
-							<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<svg
+								width="18"
+								height="18"
+								viewBox="0 0 18 18"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
 								<path
 									fillRule="evenodd"
 									clipRule="evenodd"
@@ -31,7 +37,13 @@ const NavBar = () => {
 					</div>
 
 					<div className={classes.contact}>
-						<svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg
+							width="19"
+							height="18"
+							viewBox="0 0 19 18"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
 							<path
 								d="M5.6186 1.59332C4.771 0.745732 3.36231 0.824133 2.7397 1.84843C1.82998 3.34508 1 5.22998 1 7.11669C1 9.40604 2.44106 10.8503 3.93035 12.343C4.16851 12.5817 4.40794 12.8216 4.64287 13.0665C4.81755 13.2485 4.99073 13.4323 5.16361 13.6157C6.77084 15.3214 8.35259 17 10.8833 17C12.9727 17 14.9106 16.3516 16.507 15.2452C17.403 14.6241 17.3825 13.3572 16.6116 12.5863L15.2616 11.2363C14.5107 10.4855 13.2934 10.4855 12.5426 11.2363V11.2363C11.7917 11.9871 10.5744 11.9871 9.82357 11.2363L7.30115 8.71386C6.55032 7.96303 6.55032 6.74569 7.30115 5.99487V5.99487C8.05197 5.24404 8.05197 4.0267 7.30115 3.27587L5.6186 1.59332Z"
 								stroke="white"
@@ -42,7 +54,13 @@ const NavBar = () => {
 						+7 (3462) 206-940
 					</div>
 					<div className={classes.contact}>
-						<svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg
+							width="12"
+							height="19"
+							viewBox="0 0 12 19"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
 							<path
 								fillRule="evenodd"
 								clipRule="evenodd"
@@ -56,7 +74,13 @@ const NavBar = () => {
 						<div className={classes.wrapper_btn_login}>
 							<ActiveButton>
 								Вход
-								<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<svg
+									width="17"
+									height="17"
+									viewBox="0 0 17 17"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
 									<path
 										fillRule="evenodd"
 										clipRule="evenodd"

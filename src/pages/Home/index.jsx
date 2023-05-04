@@ -73,7 +73,13 @@ const Home = () => {
 							) : (
 								<List
 									arr={divisions}
-									callback={division => <DivisionsItem key={division._id} name={division.name} id={division._id} />}
+									callback={division => (
+										<DivisionsItem
+											key={division._id}
+											name={division.name}
+											id={division._id}
+										/>
+									)}
 								/>
 							)}
 						</div>

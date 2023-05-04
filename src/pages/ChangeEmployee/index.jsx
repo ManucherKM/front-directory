@@ -136,12 +136,22 @@ const CreateEmployee = () => {
 				</div>
 				<div className={classes.item}>
 					<span>Должность</span>
-					<DropDownList arr={roles} onSelected={positionHandler} defaultValue={'Выберите'} required />
+					<DropDownList
+						arr={roles}
+						onSelected={positionHandler}
+						defaultValue={'Выберите'}
+						required
+					/>
 				</div>
 				<div className={classes.item}>
 					<span>Подразделение</span>
 
-					<DropDownList arr={divisions} onSelected={subdivisionHandler} defaultValue={'Выберите'} required />
+					<DropDownList
+						arr={divisions}
+						onSelected={subdivisionHandler}
+						defaultValue={'Выберите'}
+						required
+					/>
 				</div>
 				<div className={classes.item}>
 					<span>Отдел</span>
@@ -155,7 +165,13 @@ const CreateEmployee = () => {
 				</div>
 				<div className={classes.item}>
 					<span>Телефон</span>
-					<ActiveInput onChange={numberHandler} value={form.number} type="tel" placeholder={'+73462206940'} required />
+					<ActiveInput
+						onChange={numberHandler}
+						value={form.number}
+						type="tel"
+						placeholder={'+73462206940'}
+						required
+					/>
 				</div>
 				<div className={classes.item}>
 					<span>Электронная почта</span>
@@ -171,7 +187,12 @@ const CreateEmployee = () => {
 					<span>Фотография</span>
 					<label className={classes.file}>
 						<p>{!form.file ? 'Файл не выбран' : form.file.name}</p>
-						<ActiveInput onChange={fileHandler} type="file" required accept="image/*" />
+						<ActiveInput
+							onChange={fileHandler}
+							type="file"
+							required
+							accept="image/*"
+						/>
 					</label>
 				</div>
 				{error && (
