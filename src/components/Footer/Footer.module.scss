@@ -2,6 +2,7 @@
 
 .wrapper {
 	background-color: $blue;
+
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -27,7 +28,8 @@
 			gap: 20px;
 
 			h5 {
-				font-family: inherit;
+				font-family: 'Gilroy';
+
 				font-style: normal;
 				font-weight: 500;
 				font-size: 16px;
@@ -39,7 +41,8 @@
 			}
 
 			a {
-				font-family: inherit;
+				font-family: 'Gilroy';
+
 				font-style: normal;
 				font-weight: 400;
 				font-size: 16px;

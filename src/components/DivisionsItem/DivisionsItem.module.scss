@@ -9,12 +9,12 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	gap: 50px;
+	gap: 60px;
 
 	.text {
 		font-family: 'Gilroy';
 		font-style: normal;
-		font-weight: 800;
+		font-weight: 600;
 		font-size: 18px;
 		line-height: 22px;
 		display: flex;
@@ -22,7 +22,7 @@
 		text-align: center;
 		color: white;
 		cursor: default;
-	width: 188px;
+		width: 188px;
 	}
 
 	a {
@@ -40,7 +40,7 @@
 		span {
 			font-family: 'Montserrat';
 			font-style: normal;
-			font-weight: 700;
+			font-weight: 500;
 			font-size: 16px;
 			line-height: 20px;
 			display: flex;

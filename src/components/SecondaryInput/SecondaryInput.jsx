@@ -1,7 +1,7 @@
-import classes from "./SecondaryInput.module.scss";
+import classes from './SecondaryInput.module.scss'
 
-const SecondaryInput = (props) => {
-  return <input className={classes.input} {...props} />;
-};
+const SecondaryInput = props => {
+	return <input className={classes.input} {...props} />
+}
 
-export default SecondaryInput;
+export default SecondaryInput

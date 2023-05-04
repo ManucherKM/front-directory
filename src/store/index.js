@@ -1,178 +1,121 @@
-import axios from "../axios";
-import { create } from "zustand";
+import { create } from 'zustand'
+import axios from '../axios'
 
-export const departments = [
-  {
-    name: "Отдел кадров",
-  },
-  {
-    name: "Отдел производства",
-  },
-  {
-    name: "Отдел по работе с партнёрами",
-  },
-  {
-    name: "Отдел технического контроля",
-  },
-];
+const useStore = create(set => ({
+	auth: true,
+	login: async (login, password) => {
+		if (!login || !password) {
+			return
+		}
 
-const templateRoles = {
-  director: "Директор",
-  deputyDirector: "Заместитель директора",
-  mathTeacher: "Преподаватель по математике",
-  webDevelopmentInstructor: "Преподаватель по веб-разработке",
-};
+		const params = {
+			email: login,
+			password,
+		}
 
-export const roles = [
-  {
-    name: templateRoles.director,
-  },
-  {
-    name: templateRoles.deputyDirector,
-  },
-  {
-    name: templateRoles.mathTeacher,
-  },
-  {
-    name: templateRoles.webDevelopmentInstructor,
-  },
-];
+		const { data } = await axios.post('/admin/auth', params)
 
-const useStore = create((set) => ({
-  auth: true,
-  login: async (login, password) => {
-    if (!login || !password) {
-      return;
-    }
+		if (!data) {
+			return
+		}
 
-    const params = {
-      email: login,
-      password,
-    };
+		set({ auth: true })
 
-    const { data } = await axios.post("/admin/auth", params);
+		return data
+	},
+	logout: () => {
+		set({ auth: false })
+	},
+	getDivisions: async () => {
+		const { data } = await axios.get('/subdivisions')
 
-    if (!data) {
-      return;
-    }
+		if (!data) {
+			return
+		}
 
-    set({ auth: true });
+		return data.subdivisions
+	},
+	getManagements: async () => {
+		const { data } = await axios.get('/employees')
 
-    return data;
-  },
-  logout: () => {
-    set({ auth: false });
-  },
-  getDivisions: async () => {
-    const { data } = await axios.get("/subdivisions");
+		if (!data) {
+			return
+		}
 
-    if (!data) {
-      return;
-    }
+		const res = []
 
-    return data.subdivisions;
-  },
-  getManagements: async () => {
-    const { data } = await axios.get("/employees");
+		for (const employee of data.employees) {
+			if (res.length === 8) {
+				return res
+			}
 
-    if (!data) {
-      return;
-    }
+			if (employee.role === templateRoles.director || templateRoles.deputyDirector) {
+				res.push(employee)
+			}
+		}
 
-    const res = [];
+		return res
+	},
+	createEmployee: async (email, fullName, number, role, subdivision, department, photo) => {
+		const formData = new FormData()
 
-    for (const employee of data.employees) {
-      if (res.length === 8) {
-        return res;
-      }
+		formData.append('photo', photo)
+		formData.append('email', email)
+		formData.append('fullName', fullName)
+		formData.append('number', number)
+		formData.append('role', role)
+		formData.append('subdivision', subdivision)
+		formData.append('department', department)
 
-      if (
-        employee.role === templateRoles.director ||
-        templateRoles.deputyDirector
-      ) {
-        res.push(employee);
-      }
-    }
+		const { data } = await axios.post('/employee', formData)
 
-    return res;
-  },
-  createEmployee: async (
-    email,
-    fullName,
-    number,
-    role,
-    subdivision,
-    department,
-    photo
-  ) => {
-    const formData = new FormData();
+		if (!data) {
+			return
+		}
 
-    formData.append("photo", photo);
-    formData.append("email", email);
-    formData.append("fullName", fullName);
-    formData.append("number", number);
-    formData.append("role", role);
-    formData.append("subdivision", subdivision);
-    formData.append("department", department);
+		return data
+	},
+	updateEmployee: async (id, email, fullName, number, role, subdivision, department, photo) => {
+		const formData = new FormData()
 
-    const { data } = await axios.post("/employee", formData);
+		formData.append('id', id)
 
-    if (!data) {
-      return;
-    }
+		if (photo) {
+			formData.append('photo', photo)
+		}
 
-    return data;
-  },
-  updateEmployee: async (
-    id,
-    email,
-    fullName,
-    number,
-    role,
-    subdivision,
-    department,
-    photo
-  ) => {
-    const formData = new FormData();
+		if (department) {
+			formData.append('department', department)
+		}
 
-    formData.append("id", id);
+		if (subdivision) {
+			formData.append('subdivision', subdivision)
+		}
 
-    if (photo) {
-      formData.append("photo", photo);
-    }
+		if (role) {
+			formData.append('role', role)
+		}
 
-    if (department) {
-      formData.append("department", department);
-    }
+		if (number) {
+			formData.append('number', number)
+		}
 
-    if (subdivision) {
-      formData.append("subdivision", subdivision);
-    }
+		if (fullName) {
+			formData.append('fullName', fullName)
+		}
 
-    if (role) {
-      formData.append("role", role);
-    }
+		if (email) {
+			formData.append('email', email)
+		}
 
-    if (number) {
-      formData.append("number", number);
-    }
+		const { data } = await axios.put('/employee', formData)
 
-    if (fullName) {
-      formData.append("fullName", fullName);
-    }
+		if (!data) {
+			return
+		}
 
-    if (email) {
-      formData.append("email", email);
-    }
+		return data
+	},
+}))
 
-    const { data } = await axios.put("/employee", formData);
-
-    if (!data) {
-      return;
-    }
-
-    return data;
-  },
-}));
-
-export { useStore };
+export { useStore }

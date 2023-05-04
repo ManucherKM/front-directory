@@ -1,7 +1,7 @@
-import classes from "./SucceedCard.module.scss";
+import classes from './SucceedCard.module.scss'
 
 const SucceedCard = ({ children }) => {
-  return <div className={classes.wrapper}>{children}</div>;
-};
+	return <div className={classes.wrapper}>{children}</div>
+}
 
-export default SucceedCard;
+export default SucceedCard

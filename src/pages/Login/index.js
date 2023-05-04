@@ -1,10 +1,10 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import logo from '../../assets/img/logi_blue.png'
 import ActiveInput from '../../components/ActiveInput/ActiveInput'
 import SecondaryButton from '../../components/SecondaryButton/SecondaryButton'
-import classes from './index.module.scss'
-import logo from '../../assets/img/logi_blue.png'
-import { useState } from 'react'
 import { useStore } from '../../store'
-import { useNavigate } from 'react-router-dom'
+import classes from './index.module.scss'
 
 const Login = () => {
 	const [login, setLogin] = useState('')
@@ -33,23 +33,23 @@ const Login = () => {
 	return (
 		<div className={classes.wrapper}>
 			<div className={classes.login}>
-				<img src={logo} alt='logo' />
+				<img src={logo} alt="logo" />
 				<form onSubmit={submitForm} className={classes.form}>
 					<ActiveInput
 						onChange={e => setLogin(e.target.value)}
 						value={login}
-						placeholder='Логин'
-						type='text'
+						placeholder="Логин"
+						type="text"
 						required
 					/>
 					<ActiveInput
 						onChange={e => setPassword(e.target.value)}
 						value={password}
-						placeholder='Пароль'
-						type='password'
+						placeholder="Пароль"
+						type="password"
 						required
 					/>
-					<SecondaryButton type='submit'>Войти</SecondaryButton>
+					<SecondaryButton type="submit">Войти</SecondaryButton>
 				</form>
 			</div>
 		</div>

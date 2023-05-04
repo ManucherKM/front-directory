@@ -1,7 +1,7 @@
-import classes from "./ActiveInput.module.scss";
+import classes from './ActiveInput.module.scss'
 
-const ActiveInput = (props) => {
-  return <input className={classes.input} {...props} />;
-};
+const ActiveInput = props => {
+	return <input className={classes.input} {...props} />
+}
 
-export default ActiveInput;
+export default ActiveInput

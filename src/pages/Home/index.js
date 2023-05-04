@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import NavBar from '../../components/NavBar/NavBar'
-import Footer from '../../components/Footer/Footer'
-import classes from './index.module.scss'
-import Title from '../../components/Title/Title'
-import ManagementCard from '../../components/ManagementCard/ManagementCard'
-import { useStore } from '../../store'
-import List from '../../components/List'
-import { url } from '../../axios'
+import { useEffect, useState } from 'react'
 import DivisionsItem from '../../components/DivisionsItem/DivisionsItem'
-
-const roleManagement = 'Руководитель'
+import Footer from '../../components/Footer/Footer'
+import List from '../../components/List'
+import NavBar from '../../components/NavBar/NavBar'
+import Spinner from '../../components/Spinner/Spinner'
+import Title from '../../components/Title/Title'
+import { useStore } from '../../store'
+import classes from './index.module.scss'
 
 const Home = () => {
 	const [managements, setManagements] = useState([])
@@ -21,7 +18,7 @@ const Home = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const divisions = await getDivisions()
-
+			console.log(divisions)
 			if (!divisions) {
 				return
 			}
@@ -44,11 +41,11 @@ const Home = () => {
 		<>
 			<NavBar />
 			<div className={classes.wrapper}>
-				<div className='container'>
+				<div className="container">
 					<div className={classes.wrapper_management}>
 						<Title>Руководство</Title>
 						<div className={classes.management}>
-							<List
+							{/* <List
 								arr={managements}
 								callback={management => {
 									if (management.role === roleManagement) {
@@ -63,18 +60,22 @@ const Home = () => {
 										)
 									}
 								}}
-							/>
+							/> */}
 						</div>
 					</div>
 					<div className={classes.wrapper_books}>
 						<Title>Телефонные книжки структурных подразделений</Title>
 						<div className={classes.books}>
-							<List
-								arr={divisions}
-								callback={division => (
-									<DivisionsItem name={division.name} id={division.id} />
-								)}
-							/>
+							{divisions.length === 0 ? (
+								<div className={classes.wrapper_spinner}>
+									<Spinner />
+								</div>
+							) : (
+								<List
+									arr={divisions}
+									callback={division => <DivisionsItem key={division._id} name={division.name} id={division._id} />}
+								/>
+							)}
 						</div>
 					</div>
 				</div>

@@ -6,7 +6,7 @@ const DivisionsItem = ({ name, id }) => {
 		<div className={classes.wrapper}>
 			<p className={classes.text}>{name}</p>
 
-			<Link to={'/book'}>
+			<Link to={'/book/' + id}>
 				<span>Перейти</span>
 			</Link>
 		</div>
