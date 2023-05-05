@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 import axios from '../axios'
+import { templateRoles } from './config'
 
 const useStore = create(set => ({
-	auth: false,
+	auth: true,
 	login: async (login, password) => {
 		if (!login || !password) {
 			return
@@ -69,7 +70,6 @@ const useStore = create(set => ({
 		photo,
 	) => {
 		const formData = new FormData()
-
 		formData.append('photo', photo)
 		formData.append('email', email)
 		formData.append('fullName', fullName)
@@ -135,6 +135,15 @@ const useStore = create(set => ({
 		}
 
 		return data
+	},
+	getEmployees: async () => {
+		const { data } = await axios.get('/employees')
+
+		if (!data) {
+			return []
+		}
+
+		return data.employees
 	},
 }))
 

@@ -7,7 +7,7 @@ import SecondaryButton from '../../components/SecondaryButton/SecondaryButton'
 import SucceedCard from '../../components/SucceedCard/SucceedCard'
 import Title from '../../components/Title/Title'
 import { useStore } from '../../store'
-import { roles } from '../../store/config'
+import { departments, roles } from '../../store/config'
 import classes from './index.module.scss'
 
 const CreateEmployee = () => {
@@ -137,9 +137,9 @@ const CreateEmployee = () => {
 				<div className={classes.item}>
 					<span>Должность</span>
 					<DropDownList
+						value={form.position}
 						arr={roles}
 						onSelected={positionHandler}
-						defaultValue={'Выберите'}
 						required
 					/>
 				</div>
@@ -147,19 +147,18 @@ const CreateEmployee = () => {
 					<span>Подразделение</span>
 
 					<DropDownList
+						value={form.subdivision}
 						arr={divisions}
 						onSelected={subdivisionHandler}
-						defaultValue={'Выберите'}
 						required
 					/>
 				</div>
 				<div className={classes.item}>
 					<span>Отдел</span>
-					<ActiveInput
-						onChange={departmentHandler}
+					<DropDownList
 						value={form.department}
-						type="text"
-						placeholder={'Отдел кадров'}
+						arr={departments}
+						onSelected={departmentHandler}
 						required
 					/>
 				</div>

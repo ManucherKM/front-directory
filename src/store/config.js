@@ -1,15 +1,22 @@
+const templateDepartments = {
+	management: 'Руководство',
+	humanResourcesDepartment: 'Отдел кадров',
+	legalDepartment: 'Юридический отдел',
+	economicDepartment: 'Экономический отдел',
+}
+
 const departments = [
 	{
-		name: 'Отдел кадров',
+		name: templateDepartments.management,
 	},
 	{
-		name: 'Отдел производства',
+		name: templateDepartments.humanResourcesDepartment,
 	},
 	{
-		name: 'Отдел по работе с партнёрами',
+		name: templateDepartments.legalDepartment,
 	},
 	{
-		name: 'Отдел технического контроля',
+		name: templateDepartments.economicDepartment,
 	},
 ]
 
@@ -35,4 +42,4 @@ const roles = [
 	},
 ]
 
-export { departments, templateRoles, roles }
+export { departments, templateRoles, roles, templateDepartments }

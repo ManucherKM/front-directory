@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import classes from './DropDownList.module.scss'
 
-const DropDownList = ({ arr, onSelected, defaultValue }) => {
+const DropDownList = ({ arr, onSelected, defaultValue, ...props }) => {
 	const [selected, setSelected] = useState('')
 
 	function select(option) {
@@ -14,8 +14,9 @@ const DropDownList = ({ arr, onSelected, defaultValue }) => {
 			className={classes.wrapper}
 			defaultValue={defaultValue}
 			onChange={e => select(e.target.value)}
+			{...props}
 		>
-			<option value="">{defaultValue}</option>
+			<option value="">{defaultValue || 'Выбрать'}</option>
 
 			{arr.map(option =>
 				selected === option.name ? (

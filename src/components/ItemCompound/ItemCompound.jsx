@@ -1,15 +1,18 @@
+import { Link } from 'react-router-dom'
 import { useStore } from '../../store'
-import SecondaryButton from '../SecondaryButton/SecondaryButton'
-import classes from './ManagementCard.module.scss'
+import classes from './ItemCompound.module.scss'
 
-const ManagementCard = ({ email, number, fullName, img }) => {
-	const isAuth = useStore(state => state.auth)
+const ItemCompound = ({ fullName, role, number, email, id }) => {
+	const isActive = useStore(state => state.auth)
+
 	return (
 		<div className={classes.wrapper}>
-			<img src={img} alt="management" />
-			<div className={classes.container}>
-				<h4 className={classes.fullName}>{fullName}</h4>
-				<div className={classes.number}>
+			<div>
+				<p className={classes.fullName}>{fullName}</p>
+				<p className={classes.role}>{role}</p>
+			</div>
+			<div>
+				<p className={classes.number}>
 					<svg
 						width="19"
 						height="18"
@@ -24,10 +27,11 @@ const ManagementCard = ({ email, number, fullName, img }) => {
 							strokeLinejoin="round"
 						/>
 					</svg>
-
-					<span>{number}</span>
-				</div>
-				<div className={classes.email}>
+					{number}
+				</p>
+			</div>
+			<div>
+				<p className={classes.email}>
 					<svg
 						width="18"
 						height="14"
@@ -42,30 +46,29 @@ const ManagementCard = ({ email, number, fullName, img }) => {
 							fill="#F2650C"
 						/>
 					</svg>
-					<span>{email}</span>
-				</div>
-				{isAuth && (
-					<div className={classes.wrapper_change}>
-						<SecondaryButton>
-							<svg
-								width="20"
-								height="19"
-								viewBox="0 0 27 26"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M15.1139 5.23858L21.1486 11.2733L22.5628 9.85906L16.5281 3.82437L15.1139 5.23858ZM25.116 6.47427C25.0476 7.42035 24.6444 8.10622 24.518 8.29895L10.6066 22.2104L1.45439 24.7305L3.97457 15.5783L17.886 1.66691C18.0787 1.54055 18.7646 1.13735 19.7107 1.06891C20.6562 1.0005 21.9798 1.25534 23.4547 2.73024C24.9296 4.20514 25.1844 5.52872 25.116 6.47427Z"
-									stroke="#EAEAEA"
-									strokeWidth="2"
-								/>
-							</svg>
-						</SecondaryButton>
-					</div>
-				)}
+					{email}
+				</p>
 			</div>
+
+			{isActive && (
+				<Link to={'/employee/change/' + id}>
+					<svg
+						width="20"
+						height="19"
+						viewBox="0 0 27 26"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M15.1139 5.23858L21.1486 11.2733L22.5628 9.85906L16.5281 3.82437L15.1139 5.23858ZM25.116 6.47427C25.0476 7.42035 24.6444 8.10622 24.518 8.29895L10.6066 22.2104L1.45439 24.7305L3.97457 15.5783L17.886 1.66691C18.0787 1.54055 18.7646 1.13735 19.7107 1.06891C20.6562 1.0005 21.9798 1.25534 23.4547 2.73024C24.9296 4.20514 25.1844 5.52872 25.116 6.47427Z"
+							stroke="#EAEAEA"
+							strokeWidth="2"
+						/>
+					</svg>
+				</Link>
+			)}
 		</div>
 	)
 }
 
-export default ManagementCard
+export default ItemCompound

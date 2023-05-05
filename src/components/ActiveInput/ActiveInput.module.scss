@@ -11,7 +11,11 @@
 	line-height: 19px;
 	display: flex;
 	align-items: center;
-	color: $gray;
+	color: $blue;
 	outline: none;
 	padding: 10px 20px;
+
+	&::placeholder {
+		color: $gray;
+	}
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { url } from '../../axios'
 import DivisionsItem from '../../components/DivisionsItem/DivisionsItem'
 import Footer from '../../components/Footer/Footer'
 import List from '../../components/List'
@@ -27,7 +28,7 @@ const Home = () => {
 			setDivisions(divisions)
 
 			const managements = await getManagements()
-			console.log(managements)
+
 			if (!managements) {
 				return
 			}
@@ -55,7 +56,7 @@ const Home = () => {
 									arr={managements}
 									callback={management => (
 										<ManagementCard
-											key={management.id}
+											key={management._id}
 											number={management.number}
 											email={management.email}
 											fullName={management.fullName}

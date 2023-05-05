@@ -7,7 +7,7 @@ import SecondaryButton from '../../components/SecondaryButton/SecondaryButton'
 import SucceedCard from '../../components/SucceedCard/SucceedCard'
 import Title from '../../components/Title/Title'
 import { useStore } from '../../store'
-import { roles } from '../../store/config'
+import { departments, roles } from '../../store/config'
 import classes from './index.module.scss'
 
 const CreateEmployee = () => {
@@ -44,10 +44,10 @@ const CreateEmployee = () => {
 		}))
 	}
 
-	function departmentHandler(e) {
+	function departmentHandler(s) {
 		setForm(p => ({
 			...p,
-			department: e.target.value,
+			department: s,
 		}))
 	}
 
@@ -73,7 +73,7 @@ const CreateEmployee = () => {
 
 		const reqexp =
 			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
+		console.log(form)
 		const isCorrect =
 			!form.fullName ||
 			!form.position ||
@@ -152,9 +152,9 @@ const CreateEmployee = () => {
 				<div className={classes.item}>
 					<span>Должность</span>
 					<DropDownList
+						value={form.position}
 						arr={roles}
 						onSelected={positionHandler}
-						defaultValue={'Выберите'}
 						required
 					/>
 				</div>
@@ -162,19 +162,18 @@ const CreateEmployee = () => {
 					<span>Подразделение</span>
 
 					<DropDownList
+						value={form.subdivision}
 						arr={divisions}
 						onSelected={subdivisionHandler}
-						defaultValue={'Выберите'}
 						required
 					/>
 				</div>
 				<div className={classes.item}>
 					<span>Отдел</span>
-					<ActiveInput
-						onChange={departmentHandler}
+					<DropDownList
 						value={form.department}
-						type="text"
-						placeholder={'Отдел кадров'}
+						arr={departments}
+						onSelected={departmentHandler}
 						required
 					/>
 				</div>
