@@ -56,6 +56,7 @@ const Home = () => {
 									arr={managements}
 									callback={management => (
 										<ManagementCard
+											id={management._id}
 											key={management._id}
 											number={management.number}
 											email={management.email}

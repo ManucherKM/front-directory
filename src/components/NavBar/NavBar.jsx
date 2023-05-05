@@ -74,7 +74,7 @@ const NavBar = () => {
 					</div>
 					{!isAuth && (
 						<div className={classes.wrapper_btn_login}>
-							<ActiveButton>
+							<Link to="/login">
 								Вход
 								<svg
 									width="17"
@@ -90,7 +90,7 @@ const NavBar = () => {
 										fill="#F2F2F2"
 									/>
 								</svg>
-							</ActiveButton>
+							</Link>
 						</div>
 					)}
 				</nav>
@@ -199,7 +199,7 @@ const NavBar = () => {
 
 							{!isAuth && (
 								<div className={classes.wrapper_btn_login}>
-									<ActiveButton>
+									<Link to="/login">
 										Вход
 										<svg
 											width="17"
@@ -215,7 +215,7 @@ const NavBar = () => {
 												fill="#F2F2F2"
 											/>
 										</svg>
-									</ActiveButton>
+									</Link>
 								</div>
 							)}
 						</>

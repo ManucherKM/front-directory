@@ -1,8 +1,8 @@
+import { Link } from 'react-router-dom'
 import { useStore } from '../../store'
-import SecondaryButton from '../SecondaryButton/SecondaryButton'
 import classes from './ManagementCard.module.scss'
 
-const ManagementCard = ({ email, number, fullName, img }) => {
+const ManagementCard = ({ email, number, fullName, img, id }) => {
 	const isAuth = useStore(state => state.auth)
 	return (
 		<div className={classes.wrapper}>
@@ -46,7 +46,7 @@ const ManagementCard = ({ email, number, fullName, img }) => {
 				</div>
 				{isAuth && (
 					<div className={classes.wrapper_change}>
-						<SecondaryButton>
+						<Link to={'/employee/change/' + id}>
 							<svg
 								width="20"
 								height="19"
@@ -60,7 +60,7 @@ const ManagementCard = ({ email, number, fullName, img }) => {
 									strokeWidth="2"
 								/>
 							</svg>
-						</SecondaryButton>
+						</Link>
 					</div>
 				)}
 			</div>
