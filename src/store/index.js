@@ -3,7 +3,7 @@ import axios from '../axios'
 import { templateRoles } from './config'
 
 const useStore = create(set => ({
-	auth: true,
+	auth: false,
 	login: async (login, password) => {
 		if (!login || !password) {
 			return
