@@ -7,11 +7,23 @@
 	justify-content: space-between;
 	cursor: default;
 
+	@media (max-width: $table) {
+		padding: 20px 20px;
+		flex-direction: column;
+		gap: 20px;
+		align-items: center;
+	}
+
 	div {
 		display: flex;
 		flex-direction: column;
-		gap: 10px;
+		gap: 20px;
 		width: 30%;
+
+		@media (max-width: $table) {
+			width: 100%;
+			align-items: center;
+		}
 	}
 
 	.fullName {

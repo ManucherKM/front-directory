@@ -1,7 +1,12 @@
+@import '../../assets/styles/vars.scss';
+
 .wrapper {
 	width: 100%;
 	padding: 30px 70px;
 	cursor: default;
+	@media (max-width: $table) {
+		padding: 20px 20px;
+	}
 
 	h4 {
 		font-family: 'Gilroy';

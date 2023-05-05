@@ -3,6 +3,10 @@
 .wrapper {
 	margin: 50px 0;
 
+	@media (max-width: $table) {
+		margin: 20px 0;
+	}
+
 	h1 {
 		display: flex;
 		justify-content: center;
@@ -60,6 +64,12 @@
 			text-transform: uppercase;
 			color: black;
 			cursor: default;
+
+			@media (max-width: $table) {
+				padding: 20px 20px;
+				font-size: 20px;
+				margin-top: 0;
+			}
 		}
 
 		.employees {
