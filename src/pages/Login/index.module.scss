@@ -20,6 +20,9 @@
 			width: 80%;
 			height: auto;
 			margin-bottom: 20px;
+			@media (max-width: $mobile) {
+				width: 40%;
+			}
 		}
 
 		.form {
