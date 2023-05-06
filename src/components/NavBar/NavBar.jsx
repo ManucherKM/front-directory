@@ -1,15 +1,43 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/img/logo.png'
 import { useStore } from '../../store/index'
 import ActiveButton from '../ActiveButton/ActiveButton'
+import SearchItem from '../SearchItem/SearchItem'
 import SecondaryInput from '../SecondaryInput/SecondaryInput'
+import Spinner from '../Spinner/Spinner'
 import classes from './NavBar.module.scss'
 
 const NavBar = () => {
+	const label = useRef(null)
+
 	const [visible, setVisible] = useState(false)
+	const [search, setSearch] = useState('')
 	const isAuth = useStore(state => state.auth)
 	const logout = useStore(state => state.logout)
+	const getEmployees = useStore(state => state.getEmployees)
+
+	const [employee, setEmployee] = useState([])
+	const [filterEmployee, setFilterEmployee] = useState([])
+
+	function newfilterEmployee() {
+		const arr = employee.filter(e => e.fullName.includes(search.trim() || null))
+
+		setFilterEmployee(arr)
+	}
+
+	useEffect(() => {
+		newfilterEmployee()
+	}, [employee, search])
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const data = await getEmployees()
+			setEmployee(data)
+		}
+
+		fetchData()
+	}, [])
 	return (
 		<div className={classes.wrapper}>
 			<div className="container">
@@ -19,7 +47,7 @@ const NavBar = () => {
 					</Link>
 
 					<div className={classes.wrapper_search}>
-						<label>
+						<label ref={label}>
 							<svg
 								width="18"
 								height="18"
@@ -34,8 +62,25 @@ const NavBar = () => {
 									fill="#999999"
 								/>
 							</svg>
-							<SecondaryInput placeholder="Поиск" />
+							<SecondaryInput
+								onChange={e => setSearch(e.target.value)}
+								value={search}
+								placeholder="Поиск"
+							/>
 						</label>
+						{filterEmployee.length !== 0 && search !== '' && (
+							<div className={classes.wrapper_filter_list}>
+								{employee.length === 0 && <Spinner />}
+								{filterEmployee.map(e => (
+									<SearchItem
+										key={e._id}
+										id={e._id}
+										fullName={e.fullName}
+										role={e.role}
+									/>
+								))}
+							</div>
+						)}
 						<ActiveButton>Найти</ActiveButton>
 					</div>
 
