@@ -18,6 +18,12 @@
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 20px;
+
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			gap: 10px;
+		}
+
 		a {
 			outline: none;
 			border: none;
@@ -41,6 +47,21 @@
 			&:hover {
 				transition: all 0.3ms;
 				opacity: 0.8;
+			}
+
+			@media (max-width: $mobile) {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+
+		.btns {
+			display: flex;
+			gap: 10px;
+
+			@media (max-width: $mobile) {
+				flex-direction: column;
 			}
 		}
 	}

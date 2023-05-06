@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { url } from '../../axios'
 import BookCompound from '../../components/BookCompound/BookCompound'
 import DropDownList from '../../components/DropDownList/DropDownList'
@@ -12,6 +12,8 @@ import { templateDepartments } from '../../store/config'
 import classes from './index.module.scss'
 
 const Book = () => {
+	const isAuth = useStore(state => state.auth)
+
 	const getEmployees = useStore(state => state.getEmployees)
 	const getDivisions = useStore(state => state.getDivisions)
 	const getExcel = useStore(state => state.getExcel)
@@ -60,9 +62,14 @@ const Book = () => {
 							value={selected || 'Выбрать'}
 							onSelected={setSelected}
 						/>
-						<a href={url + '/excel'} download>
-							Скачать
-						</a>
+
+						<div className={classes.btns}>
+							{isAuth && <Link to={'/employee/create'}>Создать</Link>}
+
+							<a href={url + '/excel'} download>
+								Скачать
+							</a>
+						</div>
 					</div>
 
 					<div className={classes.compound}>

@@ -136,6 +136,19 @@ const useStore = create(set => ({
 
 		return data
 	},
+	getEmployee: async id => {
+		if (!id) {
+			return
+		}
+
+		const { data } = await axios.get('/employee/' + id)
+
+		if (!data) {
+			return {}
+		}
+
+		return data.employee
+	},
 	getEmployees: async () => {
 		const { data } = await axios.get('/employees')
 

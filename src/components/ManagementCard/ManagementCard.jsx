@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom'
 import { useStore } from '../../store'
 import classes from './ManagementCard.module.scss'
 
-const ManagementCard = ({ email, number, fullName, img, id }) => {
+const ManagementCard = ({ email, number, fullName, img, id, role }) => {
 	const isAuth = useStore(state => state.auth)
 	return (
 		<div className={classes.wrapper}>
 			<img src={img} alt="management" />
 			<div className={classes.container}>
 				<h4 className={classes.fullName}>{fullName}</h4>
+				<h4 className={classes.role}>{role}</h4>
 				<div className={classes.number}>
 					<svg
 						width="19"

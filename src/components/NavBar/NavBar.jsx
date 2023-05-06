@@ -9,6 +9,7 @@ import classes from './NavBar.module.scss'
 const NavBar = () => {
 	const [visible, setVisible] = useState(false)
 	const isAuth = useStore(state => state.auth)
+	const logout = useStore(state => state.logout)
 	return (
 		<div className={classes.wrapper}>
 			<div className="container">
@@ -72,7 +73,7 @@ const NavBar = () => {
 						</svg>
 						ул. Маяковского, 41
 					</div>
-					{!isAuth && (
+					{!isAuth ? (
 						<div className={classes.wrapper_btn_login}>
 							<Link to="/login">
 								Вход
@@ -92,6 +93,14 @@ const NavBar = () => {
 								</svg>
 							</Link>
 						</div>
+					) : (
+						<ActiveButton
+							onClick={() => {
+								logout()
+							}}
+						>
+							Выход
+						</ActiveButton>
 					)}
 				</nav>
 
@@ -197,7 +206,7 @@ const NavBar = () => {
 								ул. Маяковского, 41
 							</div>
 
-							{!isAuth && (
+							{!isAuth ? (
 								<div className={classes.wrapper_btn_login}>
 									<Link to="/login">
 										Вход
@@ -217,6 +226,14 @@ const NavBar = () => {
 										</svg>
 									</Link>
 								</div>
+							) : (
+								<ActiveButton
+									onClick={() => {
+										logout()
+									}}
+								>
+									Выход
+								</ActiveButton>
 							)}
 						</>
 					)}
