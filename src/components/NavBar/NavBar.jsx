@@ -81,7 +81,6 @@ const NavBar = () => {
 								))}
 							</div>
 						)}
-						<ActiveButton>Найти</ActiveButton>
 					</div>
 
 					<div className={classes.contact}>
@@ -229,7 +228,6 @@ const NavBar = () => {
 										))}
 									</div>
 								)}
-								<ActiveButton>Найти</ActiveButton>
 							</div>
 
 							<div className={classes.contact}>
