@@ -195,7 +195,7 @@ const NavBar = () => {
 					{visible && (
 						<>
 							<div className={classes.wrapper_search}>
-								<label>
+								<label ref={label}>
 									<svg
 										width="18"
 										height="18"
@@ -210,8 +210,25 @@ const NavBar = () => {
 											fill="#999999"
 										/>
 									</svg>
-									<SecondaryInput placeholder="Поиск" />
+									<SecondaryInput
+										onChange={e => setSearch(e.target.value)}
+										value={search}
+										placeholder="Поиск"
+									/>
 								</label>
+								{filterEmployee.length !== 0 && search !== '' && (
+									<div className={classes.wrapper_filter_list}>
+										{employee.length === 0 && <Spinner />}
+										{filterEmployee.map(e => (
+											<SearchItem
+												key={e._id}
+												id={e._id}
+												fullName={e.fullName}
+												role={e.role}
+											/>
+										))}
+									</div>
+								)}
 								<ActiveButton>Найти</ActiveButton>
 							</div>
 

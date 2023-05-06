@@ -62,15 +62,15 @@
 					border-radius: 0;
 				}
 			}
-
-			.wrapper_filter_list {
-				position: absolute;
-				transform: translateY(40px);
-				background-color: white;
-
-				border-radius: 10px;
-			}
 		}
+	}
+
+	.wrapper_filter_list {
+		position: absolute;
+		transform: translateY(40px);
+		background-color: white;
+
+		border-radius: 10px;
 	}
 
 	.navbar_mobile {
@@ -127,18 +127,16 @@
 				height: auto;
 			}
 		}
-
+		button {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 		.wrapper_search {
 			display: flex;
 			flex-direction: column;
 			gap: 18px;
 			position: relative;
-
-			button {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-			}
 
 			label {
 				border-radius: 10px;
