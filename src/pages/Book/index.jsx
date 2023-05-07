@@ -106,6 +106,95 @@ const Book = () => {
 									e.department === templateDepartments.economicDepartment,
 							)}
 						/>
+
+						<BookCompound
+							title={templateDepartments.educationalPart}
+							employees={employees.filter(
+								e =>
+									e.subdivision === selected &&
+									e.department === templateDepartments.educationalPart,
+							)}
+						/>
+						<BookCompound
+							title={
+								templateDepartments.teachingAndTrainingAndProductionPersonnel
+							}
+							employees={employees.filter(
+								e =>
+									e.subdivision === selected &&
+									e.department ===
+										templateDepartments.teachingAndTrainingAndProductionPersonnel,
+							)}
+						/>
+
+						<BookCompound
+							title={templateDepartments.centerForEducationalWork}
+							employees={employees.filter(
+								e =>
+									e.subdivision === selected &&
+									e.department === templateDepartments.centerForEducationalWork,
+							)}
+						/>
+						<BookCompound
+							title={templateDepartments.methodicalService}
+							employees={employees.filter(
+								e =>
+									e.subdivision === selected &&
+									e.department === templateDepartments.methodicalService,
+							)}
+						/>
+
+						<BookCompound
+							title={templateDepartments.library}
+							employees={employees.filter(
+								e =>
+									e.subdivision === selected &&
+									e.department === templateDepartments.library,
+							)}
+						/>
+						<BookCompound
+							title={templateDepartments.diningRoom}
+							employees={employees.filter(
+								e =>
+									e.subdivision === selected &&
+									e.department === templateDepartments.diningRoom,
+							)}
+						/>
+
+						<BookCompound
+							title={templateDepartments.housekeepingService}
+							employees={employees.filter(
+								e =>
+									e.subdivision === selected &&
+									e.department === templateDepartments.housekeepingService,
+							)}
+						/>
+						<BookCompound
+							title={templateDepartments.medicalCenter}
+							employees={employees.filter(
+								e =>
+									e.subdivision === selected &&
+									e.department === templateDepartments.medicalCenter,
+							)}
+						/>
+
+						<BookCompound
+							title={templateDepartments.informationTechnologyCenter}
+							employees={employees.filter(
+								e =>
+									e.subdivision === selected &&
+									e.department ===
+										templateDepartments.informationTechnologyCenter,
+							)}
+						/>
+						<BookCompound
+							title={templateDepartments.laborProtectionService}
+							employees={employees.filter(
+								e =>
+									e.subdivision === selected &&
+									e.department === templateDepartments.laborProtectionService,
+							)}
+						/>
 					</div>
 				</div>
 			</div>
