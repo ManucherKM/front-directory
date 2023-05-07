@@ -3,16 +3,17 @@ const templateDepartments = {
 	humanResourcesDepartment: 'Отдел кадров',
 	legalDepartment: 'Юридический отдел',
 	economicDepartment: 'Экономический отдел',
-	economicDepartment: 'Учебная часть',
-	economicDepartment: 'Педагогический и учебно-производственный персонал',
-	economicDepartment: 'Центр воспитательной работы',
-	economicDepartment: 'Методическая служба',
-	economicDepartment: 'Библиотека',
-	economicDepartment: 'Столовая',
-	economicDepartment: 'Хозяйственная служба',
-	economicDepartment: 'Медицинский пункт',
-	economicDepartment: 'Центр информационных технологий',
-	economicDepartment: 'Служба охраны труда',
+	
+	educationalPart: 'Учебная часть',
+	teachingAndTrainingAndProductionPersonnel: 'Педагогический и учебно-производственный персонал',
+	centerForEducationalWork: 'Центр воспитательной работы',
+	methodicalService: 'Методическая служба',
+	library: 'Библиотека',
+	diningRoom: 'Столовая',
+	housekeepingService: 'Хозяйственная служба',
+	MedicalCenter: 'Медицинский пункт',
+	informationTechnologyCenter: 'Центр информационных технологий',
+	laborProtectionService: 'Служба охраны труда',
 }
 
 const departments = [
