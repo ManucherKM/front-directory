@@ -3,15 +3,16 @@ const templateDepartments = {
 	humanResourcesDepartment: 'Отдел кадров',
 	legalDepartment: 'Юридический отдел',
 	economicDepartment: 'Экономический отдел',
-	
+
 	educationalPart: 'Учебная часть',
-	teachingAndTrainingAndProductionPersonnel: 'Педагогический и учебно-производственный персонал',
+	teachingAndTrainingAndProductionPersonnel:
+		'Педагогический и учебно-производственный персонал',
 	centerForEducationalWork: 'Центр воспитательной работы',
 	methodicalService: 'Методическая служба',
 	library: 'Библиотека',
 	diningRoom: 'Столовая',
 	housekeepingService: 'Хозяйственная служба',
-	MedicalCenter: 'Медицинский пункт',
+	medicalCenter: 'Медицинский пункт',
 	informationTechnologyCenter: 'Центр информационных технологий',
 	laborProtectionService: 'Служба охраны труда',
 }
@@ -28,6 +29,37 @@ const departments = [
 	},
 	{
 		name: templateDepartments.economicDepartment,
+	},
+
+	{
+		name: templateDepartments.educationalPart,
+	},
+	{
+		name: templateDepartments.teachingAndTrainingAndProductionPersonnel,
+	},
+	{
+		name: templateDepartments.centerForEducationalWork,
+	},
+	{
+		name: templateDepartments.methodicalService,
+	},
+	{
+		name: templateDepartments.library,
+	},
+	{
+		name: templateDepartments.diningRoom,
+	},
+	{
+		name: templateDepartments.housekeepingService,
+	},
+	{
+		name: templateDepartments.medicalCenter,
+	},
+	{
+		name: templateDepartments.informationTechnologyCenter,
+	},
+	{
+		name: templateDepartments.laborProtectionService,
 	},
 ]
 
