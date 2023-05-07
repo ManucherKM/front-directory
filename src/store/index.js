@@ -3,7 +3,7 @@ import axios from '../axios'
 import { templateRoles } from './config'
 
 const useStore = create(set => ({
-	auth: false,
+	auth: true,
 	login: async (login, password) => {
 		if (!login || !password) {
 			return
@@ -148,6 +148,19 @@ const useStore = create(set => ({
 		}
 
 		return data.employee
+	},
+	removeEmployee: async id => {
+		if (!id) {
+			return
+		}
+
+		const { data } = await axios.delete('/employee/' + id)
+
+		if (!data) {
+			return {}
+		}
+
+		return data.succes
 	},
 	getEmployees: async () => {
 		const { data } = await axios.get('/employees')
