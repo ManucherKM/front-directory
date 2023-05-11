@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useStore } from '../../store'
+import { formatPhoneNumber } from '../../utils/formatPhoneNumber'
 import classes from './ManagementCard.module.scss'
 
 const ManagementCard = ({ email, number, fullName, img, id, role }) => {
@@ -26,7 +27,7 @@ const ManagementCard = ({ email, number, fullName, img, id, role }) => {
 						/>
 					</svg>
 
-					<span>{number}</span>
+					<span>{formatPhoneNumber(number)}</span>
 				</div>
 				<div className={classes.email}>
 					<svg
