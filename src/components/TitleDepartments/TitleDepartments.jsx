@@ -1,8 +1,8 @@
 import classes from './TitleDepartments.module.scss'
 
-const TitleDepartments = ({ children }) => {
+const TitleDepartments = ({ children, ...props }) => {
 	return (
-		<div className={classes.wrapper}>
+		<div className={classes.wrapper} {...props}>
 			<h4>{children}</h4>
 		</div>
 	)

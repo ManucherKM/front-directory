@@ -70,7 +70,7 @@ const Home = () => {
 						</div>
 					</div>
 					<div className={classes.wrapper_books}>
-						<Title>Телефонные книжки структурных подразделений</Title>
+						<Title>Телефонный справочник</Title>
 						<div className={classes.books}>
 							{divisions.length === 0 ? (
 								<div className={classes.wrapper_spinner}>

@@ -3,7 +3,16 @@
 .wrapper {
 	width: 100%;
 	padding: 30px 70px;
-	cursor: default;
+	cursor: pointer;
+	transition: all 300ms;
+
+	&:hover {
+		opacity: 0.8;
+		transition: all 300ms;
+		background-color: $blue;
+		color: white;
+	}
+
 	@media (max-width: $table) {
 		padding: 20px 20px;
 	}
@@ -18,6 +27,6 @@
 		align-items: center;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
-		color: black;
+		color: inherit;
 	}
 }
