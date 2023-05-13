@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import defaultPhoto from '../../assets/img/not_found_photo.png'
 import { useStore } from '../../store'
 import classes from './ManagementCard.module.scss'
 
@@ -6,7 +7,7 @@ const ManagementCard = ({ email, number, fullName, img, id, role }) => {
 	const isAuth = useStore(state => state.auth)
 	return (
 		<div className={classes.wrapper}>
-			<img src={img} alt="management" />
+			<img src={img || defaultPhoto} alt="management" />
 			<div className={classes.container}>
 				<h4 className={classes.fullName}>{fullName}</h4>
 				<h4 className={classes.role}>{role}</h4>

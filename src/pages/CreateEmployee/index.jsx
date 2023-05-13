@@ -81,8 +81,7 @@ const CreateEmployee = () => {
 			!reqexp.test(form.email) ||
 			checkDigitsInStr(form.number) < 11 ||
 			!form.subdivision ||
-			!form.department ||
-			!form.file
+			!form.department
 
 		if (isCorrect) {
 			setError(true)
@@ -97,7 +96,7 @@ const CreateEmployee = () => {
 			form.position,
 			form.subdivision,
 			form.department,
-			form.file,
+			form.file && form.file,
 		)
 
 		if (!res) {

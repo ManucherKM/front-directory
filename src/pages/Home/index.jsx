@@ -62,7 +62,11 @@ const Home = () => {
 											number={management.number}
 											email={management.email}
 											fullName={management.fullName}
-											img={url + '/image/' + management.photo}
+											img={
+												management.photo
+													? url + '/image/' + management.photo
+													: null
+											}
 										/>
 									)}
 								/>

@@ -70,7 +70,11 @@ const useStore = create(set => ({
 		photo,
 	) => {
 		const formData = new FormData()
-		formData.append('photo', photo)
+
+		if (photo) {
+			formData.append('photo', photo)
+		}
+
 		formData.append('email', email)
 		formData.append('fullName', fullName)
 		formData.append('number', number)
