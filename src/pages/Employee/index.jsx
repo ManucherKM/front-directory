@@ -5,7 +5,6 @@ import Footer from '../../components/Footer/Footer'
 import Loader from '../../components/Loader/Loader'
 import NavBar from '../../components/NavBar/NavBar'
 import { useStore } from '../../store'
-import { formatPhoneNumber } from '../../utils/formatPhoneNumber'
 import classes from './index.module.scss'
 
 const Employee = () => {
@@ -46,7 +45,7 @@ const Employee = () => {
 								</p>
 								<p className={classes.email}>Почта: {employee.email}</p>
 								<p className={classes.number}>
-									Номер телефона: {formatPhoneNumber(employee.number)}
+									Номер телефона: {employee.number}
 								</p>
 								{isActive && (
 									<Link to={'/employee/change/' + id}>

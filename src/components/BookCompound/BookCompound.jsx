@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { formatPhoneNumber } from '../../utils/formatPhoneNumber'
 import ItemCompound from '../ItemCompound/ItemCompound'
 import TitleDepartments from '../TitleDepartments/TitleDepartments'
 import classes from './BookCompound.module.scss'
@@ -9,7 +8,6 @@ const BookCompound = ({ title, employees }) => {
 
 	function visibleHandler(e) {
 		setVisible(p => !p)
-		console.log(123)
 	}
 
 	return (
@@ -28,7 +26,7 @@ const BookCompound = ({ title, employees }) => {
 									email={e.email}
 									fullName={e.fullName}
 									id={e._id}
-									number={formatPhoneNumber(e.number)}
+									number={e.number}
 									role={e.role}
 								/>
 							))}

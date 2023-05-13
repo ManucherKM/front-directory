@@ -8,9 +8,10 @@ import SucceedCard from '../../components/SucceedCard/SucceedCard'
 import Title from '../../components/Title/Title'
 import { useStore } from '../../store'
 import { departments, roles } from '../../store/config'
+import { checkDigitsInStr } from '../../utils/checkDigitsInStr'
 import classes from './index.module.scss'
 
-const CreateEmployee = () => {
+const ChangeEmployee = () => {
 	const updateEmployee = useStore(state => state.updateEmployee)
 
 	const [divisions, setDivisions] = useState([])
@@ -34,7 +35,7 @@ const CreateEmployee = () => {
 	const [loading, setLodaing] = useState(false)
 
 	function numberHandler(e) {
-		setForm(p => ({ ...p, number: e.target.value.replace(/[^0-9]/g, '') }))
+		setForm(p => ({ ...p, number: e.target.value }))
 	}
 
 	function subdivisionHandler(s) {
@@ -72,6 +73,13 @@ const CreateEmployee = () => {
 	async function submitHandler(e) {
 		e.preventDefault()
 		setLodaing(true)
+
+		if (form.number.length !== 0 && checkDigitsInStr(form.number) < 11) {
+			setSucceed(false)
+			setError(true)
+			setLodaing(false)
+			return
+		}
 
 		const res = await updateEmployee(
 			id,
@@ -212,4 +220,4 @@ const CreateEmployee = () => {
 	)
 }
 
-export default CreateEmployee
+export default ChangeEmployee

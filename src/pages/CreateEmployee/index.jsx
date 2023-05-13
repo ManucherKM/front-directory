@@ -8,6 +8,7 @@ import SucceedCard from '../../components/SucceedCard/SucceedCard'
 import Title from '../../components/Title/Title'
 import { useStore } from '../../store'
 import { departments, roles } from '../../store/config'
+import { checkDigitsInStr } from '../../utils/checkDigitsInStr'
 import classes from './index.module.scss'
 
 const CreateEmployee = () => {
@@ -34,7 +35,7 @@ const CreateEmployee = () => {
 	const [loading, setLodaing] = useState(false)
 
 	function numberHandler(e) {
-		setForm(p => ({ ...p, number: e.target.value.replace(/[^0-9]/g, '') }))
+		setForm(p => ({ ...p, number: e.target.value }))
 	}
 
 	function subdivisionHandler(s) {
@@ -73,12 +74,12 @@ const CreateEmployee = () => {
 
 		const reqexp =
 			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-		console.log(form)
+
 		const isCorrect =
 			!form.fullName ||
 			!form.position ||
 			!reqexp.test(form.email) ||
-			!form.number ||
+			checkDigitsInStr(form.number) < 11 ||
 			!form.subdivision ||
 			!form.department ||
 			!form.file

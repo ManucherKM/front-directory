@@ -8,7 +8,6 @@ const ItemCompound = ({ fullName, role, number, email, id }) => {
 	const removeEmployee = useStore(state => state.removeEmployee)
 
 	function remove() {
-		console.log(id)
 		removeEmployee(id)
 	}
 
