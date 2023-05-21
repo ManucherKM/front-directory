@@ -3,7 +3,6 @@ const templateDepartments = {
 	humanResourcesDepartment: 'Отдел кадров',
 	legalDepartment: 'Юридический отдел',
 	economicDepartment: 'Экономический отдел',
-
 	educationalPart: 'Учебная часть',
 	teachingAndTrainingAndProductionPersonnel:
 		'Педагогический и учебно-производственный персонал',
@@ -30,7 +29,6 @@ const departments = [
 	{
 		name: templateDepartments.economicDepartment,
 	},
-
 	{
 		name: templateDepartments.educationalPart,
 	},
@@ -68,6 +66,12 @@ const templateRoles = {
 	deputyDirector: 'Заместитель директора',
 	mathTeacher: 'Преподаватель по математике',
 	webDevelopmentInstructor: 'Преподаватель по веб-разработке',
+	teacher: 'Преподаватель',
+	seniorMethodist: 'Старший методист',
+	methodist: 'Методист',
+	softwareEngineer: 'Инженер-программист',
+	electronicsEngineer: 'Инженер-электроник',
+	technician: 'Техник',
 }
 
 const roles = [
@@ -82,6 +86,24 @@ const roles = [
 	},
 	{
 		name: templateRoles.webDevelopmentInstructor,
+	},
+	{
+		name: templateRoles.teacher,
+	},
+	{
+		name: templateRoles.seniorMethodist,
+	},
+	{
+		name: templateRoles.methodist,
+	},
+	{
+		name: templateRoles.softwareEngineer,
+	},
+	{
+		name: templateRoles.electronicsEngineer,
+	},
+	{
+		name: templateRoles.technician,
 	},
 ]
 
